@@ -8,11 +8,18 @@
           v-for="link in links"
           :key="link"
           link
+          
         >
           <v-list-item-title>{{ link }}</v-list-item-title>
         </v-list-item>
       </v-list>
+     
+   
+    ...
+ 
     </v-navigation-drawer>
+    
+   
 
     <!-- Navbar -->
     <v-app-bar flat app>
@@ -26,6 +33,7 @@
 
       <!-- Espaciador para ajustar la alineación en pantallas grandes -->
       <v-spacer></v-spacer>
+      
 
       <!-- Navbar Links con margen derecho (solo visibles en pantallas grandes, alineados a la derecha) -->
       <div v-if="!isMobile" class="d-flex align-center me-4">
@@ -38,6 +46,7 @@
           {{ link }}
         </v-btn>
       </div>
+      |<v-btn @click="toggleTheme"> theme</v-btn>
     </v-app-bar>
 
     <!-- Main Content -->
@@ -264,6 +273,7 @@
    
   </v-app>
   <AppFooter />
+ 
 </template>
 
 <script setup>
@@ -299,6 +309,14 @@ const images = ref([
   '/img/carrousel3.png',
   '/img/carrousel4.png'
 ])
+
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
+
+function toggleTheme () {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
 </script>
 
 <style scoped>
@@ -318,7 +336,7 @@ body, html {
 
 /* Aplicar estilos personalizados a los contenedores de Vuetify */
 .v-container {
-  max-width: 1500px;  /* Controla el ancho máximo si es necesario */
+  max-width: 100%;  /* Controla el ancho máximo si es necesario */
   margin-right: auto;
   margin-left: auto;
   padding-left: 16px;

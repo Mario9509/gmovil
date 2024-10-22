@@ -3,29 +3,57 @@
   <div class="footer-container">
     <div class="footer-top">
       <div class="footer-logo">
-        <!-- <img src="riot-logo.png" alt="Riot Games Logo"> -->
+         <img :src="logoFooter" alt="Gmovil Logo" />
       </div>
       <div class="footer-links">
-        <a href="#">PRENSA</a>
-        <a href="#">SEGURIDAD</a>
-        <a href="#">LEGAL</a>
+      <!--   <a href="#">NOSOTROS</a> -->
+        <a href="#">ACERCA DE GMOVIL</a>
+        <a href="#">BLOG</a>
         <a href="#">AVISO DE PRIVACIDAD</a>
         <a href="#">TÉRMINOS DE SERVICIO</a>
-        <a href="#">ASISTENCIA AL JUGADOR</a>
-        <a href="#">VERIFICAR EN LÍNEA</a>
-        <a href="#">ACCESIBILIDAD</a>
+        <a href="#">FACTURACION</a>
+        <a href="#">PORTABILIDAD</a>
+        <a href="#">CONTACTANOS</a>
+      
       </div>
       <div class="footer-social">
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-tiktok"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-youtube"></i></a>
+     <v-row class="apoco">
+    <v-col>
+      <a href="https://x.com/gmoviloficial">
+        <v-icon>mdi-twitter</v-icon>
+      </a>
+    </v-col>
+    <v-col>
+      <a href="#">
+        <v-icon>mdi-instagram</v-icon>
+      </a>
+    </v-col>
+
+    <v-col>
+      <a href="https://www.linkedin.com/company/gmoviloficialmx">
+        <v-icon>mdi-linkedin</v-icon>
+      </a>
+    </v-col>
+    <v-col>
+      <a href="https://www.facebook.com/gmovil.oficialmx">
+        <v-icon>mdi-facebook</v-icon>
+      </a>
+    </v-col>
+    <v-col>
+      <a href="#">
+        <v-icon>mdi-youtube</v-icon>
+      </a>
+    </v-col>
+    <v-col>
+      <a href="https://api.whatsapp.com/send?phone=5216693834182">
+        <v-icon>mdi-whatsapp</v-icon>
+      </a>
+    </v-col>
+  </v-row>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Preferencias de cookies | &copy; 2024 Riot Games, Inc. Todos los derechos reservados.</p>
+      <p>Preferencias de cookies | &copy; 2024 Gmovil, Inc. Todos los derechos reservados.</p>
     </div>
   </div>
 </footer>
@@ -33,6 +61,13 @@
 
   
 </template>
+
+<script setup>
+import logoFooter from '../assets/logo_gmovil_footer.webp'
+import '@fortawesome/fontawesome-free/css/all.css'
+
+
+</script>
   
 <style scoped>
 /* CSS */
@@ -40,14 +75,14 @@
 .footer {
   background-color: #1c1c1c;
   color: #fff;
-  padding: 20px 0;
+  padding: 3rem;
   font-family: Arial, sans-serif;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 2rem;
 }
 
 .footer-top {
@@ -66,6 +101,7 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  padding-bottom: 1rem;
 }
 
 .footer-links a {
@@ -90,7 +126,7 @@
 }
 
 .footer-social a:hover {
-  color: #50a3ea;
+  color: #ff8610;
 }
 
 .footer-bottom {
@@ -103,4 +139,6 @@
   margin: 0;
   font-size: 14px;
 }
+
+
 </style>
