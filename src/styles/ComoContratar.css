@@ -1,0 +1,42 @@
+.img-responsive {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 16px; /* Espacio entre imagen y texto */
+  }
+  
+  .titulo-contratar {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 32px;
+    color: #1e88e5;
+    text-align: center;
+  }
+  
+  .text-container h3 {
+    font-size: 1.3rem; /* Ajustar tamaño */
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  
+  .text-container p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    word-wrap: break-word; /* Asegura que el texto no se desborde */
+  }
+  
+  .step-container {
+    display: flex;
+    align-items: center; /* Alinea imagen y texto verticalmente */
+    gap: 16px; /* Espacio entre imagen y texto */
+    min-height: 150px; /* Mantiene altura consistente */
+  }
+  
+  .v-col {
+    padding: 12px;
+  }
+  
+  .v-responsive{
+    flex: none;
+  }

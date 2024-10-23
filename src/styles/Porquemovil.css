@@ -1,0 +1,46 @@
+.equal-height-row {
+    min-height: auto; /* Evitar restricciones de altura en móviles */
+  }
+  
+  .v-sheet {
+    height: 100%; /* Asegura que el v-sheet ocupe todo el espacio disponible */
+  }
+  
+  .img-full {
+    width: 100%;
+    height: 100%; /* Asegura que la imagen cubra todo el contenedor */
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .titulo-container {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #1e88e5;
+    text-align: center; /* Alinear a la izquierda */
+  }
+  
+  .texto-principal {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+    line-height: 1.6;
+    text-align: justify; /* Alinear el texto de manera justificada */
+  }
+  
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .check-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  .img-full-cont{
+    border-radius: 12px!important;
+  }
