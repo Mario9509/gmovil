@@ -3,8 +3,6 @@
     <!-- Navigation Drawer -->
     
 
-
-
     <v-navigation-drawer v-model="drawer" app>
   <v-list v-if="isMobile">
     <v-list-group
@@ -12,9 +10,12 @@
       :key="index"
       :prepend-icon="item.icon"
       :value="false"
+      class="group-list"
     >
       <template #activator>
-        <v-list-item-title>{{ item.title }}</v-list-item-title>
+        <v-list-item>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
       </template>
 
       <!-- Submenús -->
@@ -22,6 +23,7 @@
         v-for="(sublink, subIndex) in item.sublinks"
         :key="subIndex"
         link
+        @click="handleClick(sublink)"
       >
         <v-list-item-title>{{ sublink }}</v-list-item-title>
       </v-list-item>
@@ -29,7 +31,7 @@
   </v-list>
 </v-navigation-drawer>
 
-<!-- Navbar -->
+<!-- Navbar para PC -->
 <v-app-bar flat app>
   <v-app-bar-nav-icon v-if="isMobile" @click="drawer = !drawer" />
   <v-app-bar-title class="me-4">
@@ -38,15 +40,17 @@
 
   <v-spacer />
 
-  <!-- Menú con submenús en versión escritorio -->
   <div v-if="!isMobile" class="d-flex align-center me-4">
     <v-menu
       v-for="(item, index) in menuItems"
       :key="index"
       transition="slide-y-transition"
+      offset-y
     >
       <template #activator="{ props }">
-        <v-btn v-bind="props" text>{{ item.title }}</v-btn>
+        <v-btn v-bind="props" text class="menu-btn">
+          {{ item.title }}
+        </v-btn>
       </template>
 
       <v-list>
@@ -54,6 +58,7 @@
           v-for="(sublink, subIndex) in item.sublinks"
           :key="subIndex"
           link
+          @click="handleClick(sublink)"
         >
           <v-list-item-title>{{ sublink }}</v-list-item-title>
         </v-list-item>
@@ -61,6 +66,7 @@
     </v-menu>
   </div>
 </v-app-bar>
+
 
 
 
@@ -511,6 +517,12 @@ const menuItems = ref([
   },
 ]);
 
+// Maneja los clics en los submenús
+const handleClick = (sublink) => {
+  console.log(`Navigating to: ${sublink}`);
+  // Aquí puedes añadir la lógica para redireccionar a la ruta correspondiente
+};
+
 const showScrollButton = ref(false);
 
 
@@ -708,5 +720,36 @@ h2 {
   background-color: #1565c0;
 }
 
+/*-------------------------Css para los submenus:-------------------------- */ 
+/* Aumentar el ancho de los botones del menú en PC */
+.menu-btn {
+  min-width: 150px;
+  font-weight: bold;
+}
+
+/* Ajustes para los submenús en el Drawer (móvil) */
+.group-list {
+  margin-bottom: 12px;
+}
+
+/* Asegura que los submenús en móvil se vean bien */
+.v-list-item {
+  padding: 12px 16px;
+}
+
+/* Alinear texto y dar más espacio a los submenús */
+.v-list-item-title {
+  font-size: 1.1rem;
+}
+
+/* Mejorar iconos y reducir padding para móvil */
+.v-navigation-drawer .v-list-item__icon {
+  margin-right: 8px;
+}
+
+/* Estilo del Drawer */
+.v-navigation-drawer {
+  width: 250px; /* Aumenta el ancho del Drawer para mayor comodidad */
+}
 
 </style>
