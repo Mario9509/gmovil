@@ -1,0 +1,32 @@
+.imagen-fondo-2 {
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  height:55vh; /* Ocupa todo el alto de la ventana */
+  background-image: url('/img/img-full-2.png'); /* Ruta de tu imagen */
+  background-size: cover; /* La imagen cubre todo el contenedor */
+  background-position: center; /* Centrar la imagen */
+  background-repeat: no-repeat; /* Evitar que la imagen se repita */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Filtro oscuro opcional para mejorar la legibilidad */
+.imagen-fondo-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.4); Oscurecer con opacidad */
+  z-index: 0;
+}
+
+@media (max-width: 600px) {
+  .imagen-fondo-2 {
+    background-image: url('/img/carrousel1-mb.png'); /* Imagen para móviles */
+    background-size: contain; /* Ajusta la imagen al contenedor sin recortar */
+    background-position: top; /* Centrar la imagen en la parte superior */
+  }
+}

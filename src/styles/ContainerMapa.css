@@ -1,0 +1,46 @@
+.equal-height-row {
+    min-height: auto; /* Asegura que se adapte al contenido */
+  }
+  
+  .v-sheet {
+    height: 100%; /* Mantiene el v-sheet a toda la altura disponible */
+  }
+  
+  .titulo-container {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: #000000;
+    text-align: center;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .btn-buscar {
+    height: 48px!important; /* Ajustar altura */
+    border-radius: 24px!important; /* Menor redondez */
+    font-size: 1rem!important;
+    font-weight: 500!important;
+  }
+  
+  .mapa-iframe {
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  .img-full-cont-1{
+    border-radius: 12px!important;
+  }
+  
+  .titulo-map{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #333;
+  }
