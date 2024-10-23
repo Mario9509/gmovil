@@ -727,6 +727,8 @@ h2 {
   font-weight: bold;
 }
 
+/*  */
+
 /* Ajustes para los submenús en el Drawer (móvil) */
 .group-list {
   margin-bottom: 12px;
