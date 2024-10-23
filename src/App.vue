@@ -1,25 +1,72 @@
 <template>
   <v-app id="inspire">
     <!-- Navigation Drawer -->
+    
+
+
+
     <v-navigation-drawer v-model="drawer" app>
-      <v-list v-if="isMobile">
-        <v-list-item v-for="link in links" :key="link" link>
-          <v-list-item-title>{{ link }}</v-list-item-title>
+  <v-list v-if="isMobile">
+    <v-list-group
+      v-for="(item, index) in menuItems"
+      :key="index"
+      :prepend-icon="item.icon"
+      :value="false"
+    >
+      <template #activator>
+        <v-list-item-title>{{ item.title }}</v-list-item-title>
+      </template>
+
+      <!-- Submenús -->
+      <v-list-item
+        v-for="(sublink, subIndex) in item.sublinks"
+        :key="subIndex"
+        link
+      >
+        <v-list-item-title>{{ sublink }}</v-list-item-title>
+      </v-list-item>
+    </v-list-group>
+  </v-list>
+</v-navigation-drawer>
+
+<!-- Navbar -->
+<v-app-bar flat app>
+  <v-app-bar-nav-icon v-if="isMobile" @click="drawer = !drawer" />
+  <v-app-bar-title class="me-4">
+    <img src="/img/gmovil.png" alt="Gmovil Logo" style="height: 32px;">
+  </v-app-bar-title>
+
+  <v-spacer />
+
+  <!-- Menú con submenús en versión escritorio -->
+  <div v-if="!isMobile" class="d-flex align-center me-4">
+    <v-menu
+      v-for="(item, index) in menuItems"
+      :key="index"
+      transition="slide-y-transition"
+    >
+      <template #activator="{ props }">
+        <v-btn v-bind="props" text>{{ item.title }}</v-btn>
+      </template>
+
+      <v-list>
+        <v-list-item
+          v-for="(sublink, subIndex) in item.sublinks"
+          :key="subIndex"
+          link
+        >
+          <v-list-item-title>{{ sublink }}</v-list-item-title>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+    </v-menu>
+  </div>
+</v-app-bar>
 
-    <!-- Navbar -->
-    <v-app-bar flat app>
-      <v-app-bar-nav-icon v-if="isMobile" @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-app-bar-title class="me-4">
-        <img src="/img/gmovil.png" alt="Gmovil Logo" style="height: 32px;">
-      </v-app-bar-title>
-      <v-spacer></v-spacer>
-      <div v-if="!isMobile" class="d-flex align-center me-4">
-        <v-btn v-for="link in links" :key="link" text variant="text">{{ link }}</v-btn>
-      </div>
-    </v-app-bar>
+
+
+
+
+
 
     <!-- Main Content -->
     <v-main class="bg-grey-lighten-3">
@@ -441,7 +488,29 @@ const { isMobile } = useScreenSize();
 
 // Drawer y Mobile detection
 const drawer = ref(false);
-const links = ['Dashboard', 'Messages', 'Profile', 'Updates'];
+const menuItems = ref([
+  {
+    title: 'Dashboard',
+    icon: 'mdi-view-dashboard',
+    sublinks: ['Overview', 'Stats', 'Reports'],
+  },
+  {
+    title: 'Messages',
+    icon: 'mdi-email',
+    sublinks: ['Inbox', 'Sent', 'Drafts'],
+  },
+  {
+    title: 'Profile',
+    icon: 'mdi-account',
+    sublinks: ['Settings', 'Privacy', 'Logout'],
+  },
+  {
+    title: 'Updates',
+    icon: 'mdi-update',
+    sublinks: ['Announcements', 'Changelog', 'Roadmap'],
+  },
+]);
+
 const showScrollButton = ref(false);
 
 
